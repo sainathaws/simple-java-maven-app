@@ -1,7 +1,10 @@
 pipeline
 {
 
-agent none
+agent {
+  label 'Prod'
+}
+
 stages{
 
     stage('build')
@@ -9,21 +12,11 @@ stages{
         steps {
             echo 'Hi this is sainath first build'
         }
-    }
-
-    stage('test')
-    {
-        steps {
-            echo 'Hi this is sainath first test'
-        }
-    }
-
-    stage('deploy')
-    {
-        steps {
-            echo 'Hi this is sainath first deploy'
-        }
-    }   
-
+        post {
+      success {
+    // One or more steps need to be included within each condition's block.
+  }
+}
+}
 }
 }
